@@ -1,0 +1,150 @@
+-> Recursion is a process in which the function calls itself.
+Properities of Recursion:
+------------------------
+-> Recursion mainly use LIFO(Last in First Out). 
+-> It mainly contains two parts:
+        * Base Case Condition
+        * Recursive algorithm must change its state and move towards the base case condition.
+        (must call itself)
+
+-> There are two types of recursive functions
+    -> Direct Recursion.   Here the function will be called with in itself.
+    -> Indirect Recursion.   
+
+
+Direct Recursion :
+------------------
+Here the function will be called with in itself.
+Eg:
+function rec(n){
+    if(n==0){return}  //-> It is base case condition.
+    else{             // progressive call
+        rec(n-1)
+        console.log(n)
+        }
+}
+
+InDirect Recursion:
+-------------------
+The function will be called by another functions.(indirect recursion can be used to call more than one method or function with the help of other functions)
+Eg:
+
+
+Types of Direct Recursion:
+--------------------------
+1.Head Recursion.
+2.Tail Recursion.
+3.Tree Recursion.
+4.Nested Recursion.
+
+1. Head Recursion:
+------------------
+Recursive call is the first statement in the function.
+Eg:
+function rec(n){
+    if(n==0){return}  
+    else{            
+        rec(n-1)  
+        console.log(n)
+        }
+}
+rec(5)
+o/p ---> 1 2 3 4 5
+2.Tail Recursion:
+-----------------
+Eg:
+function rec(n){
+    if(n==0){return}
+    else{
+        console.log(n)
+        rec(n-1)
+    }
+}
+o/p: 5 4 3 2 1
+Tree Recursion:
+---------------
+If a function is called with in afunction more than one time it is called a tree recursion.
+Eg:
+function rec(n){
+    if(n==0){return}
+    else{
+        console.log(n)
+        rec(n-1)
+        rec(n-1)
+    }
+}
+rec(3)
+o/p: 3 2 1 1 2 1 1
+
+Nested Recursion:
+-----------------
+The recursive function will pass the parameter as a recursive call. i.e Recursion inside recursion.
+Eg:
+function rec( n)
+{
+    if (n > 100)
+        return n - 10;
+  
+    // A recursive function passing parameter
+    // as a recursive call or recursion
+    // inside the recursion
+    return rec(rec(n + 11));
+}
+
+console.log(rec(95))
+Explanation:
+
+1st :
+----
+rec(rec(106))  --> 106>100  retun 96;
+
+rec(96)
+
+rec(Rec(96+11))  ---> 107 > 100 return 97;
+
+rec(rec(97+11)) -- > 108 > 100 return 98;
+
+rec(rec(98+11))  ---> 110 > 100 return 100;
+
+rec(rec(100+11))  ---> 111> 100 return 101;
+
+101>100 return 101-10 --> 91
+
+o/p : 91
+
+
+
+Time and Space Complexities:
+----------------------------
+Time Complexity:
+----------------
+The time taken by a program to run the algorithm as a function of input given.
+It is represendted by BIG O notation .
+Calculation of time complexity for recursion:
+----------------------------------------------
+1. Find out no of function call.
+    let size of input is n ,
+    let us consider the following example to calculate the Time complexity.
+    function rec(n){
+        if(n==0){return}
+        else{
+            console.log(n)
+            rec(n-1)
+        }
+    }
+    for n=3 
+         rec(3) rec(2) rec(1) rec(0)  that is for input 3 we are getting 4 function calls .
+so Number of function calls is 4 i.e n+1;
+2.Time complexity for each function call.
+    For each function call tc is O(1)
+
+Total TC is n+1 * O(1)
+
+for tree recursion:
+-------------------
+
+(2 power n)-1/(n-1)
+
+
+
+
